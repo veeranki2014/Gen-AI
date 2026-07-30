@@ -17,20 +17,20 @@
 ** Intereoperability means irrespective of the platform and language if applications are communicating then we will call them as Intereoperable applications.
 
 ## Q)  Why we should develop Distributed application?
-1) Distributed applications are used for Business to Business Communication ( B 2 B )
-2) We can resue the functionality of one project in another project.
+    1) Distributed applications are used for Business to Business Communication ( B 2 B )
+    2) We can resue the functionality of one project in another project.
 
 ## Ex-1:
-1) AWS project contains business logic to provision the AWS Services to expose as REST API Services.
+    1) AWS project contains business logic to provision the AWS Services to expose as REST API Services.
 
 ## Ex-2 :
-1) OPEN AI company developed GPT Model (LLM)
-2) Other applications can use GPT Model for AI implementation.
+    1) OPEN AI company developed GPT Model (LLM)
+    2) Other applications can use GPT Model for AI implementation.
 
 
 ##### Distributed applications can be developed in 2 ways
-		1) SOAP Webservices (Outdated)
-		2) RESTFul Services (Trending)
+    1) SOAP Webservices (Outdated)
+    2) RESTFul Services (Trending)
 
 ## What is REST API ?
 
@@ -45,61 +45,40 @@
 			-- Request Data
 			-- Response Data
 
-======================
-REST API Architecture
-=======================
+## REST API Architecture
+    ==>Provider
+    ==>Consumer			
 
-1) Provider
-
-2) Consumer			
-
-=> Provider means the application which is providing business services to other applications.
-
-=> Consumer means the application which is accessing business services from other applications.
+**Provider means the application which is providing business services to other applications.**
+**Consumer means the application which is accessing business services from other applications.**
 
 	Ex: IRCTC is a provider and MakeMyTrip & Yatra are consmers.
-
 		OPEN AI GPT Project is a provider, Ashok IT Web App is a consumer.
-
 
 Note: We will use JSON to exchange data between provider & consumer.
 
+## JSON
+    => JSON stands for Java Script Object Notation.
+    => JSON represents data in key-value format.
 
-======
-JSON
-======
-
-=> JSON stands for Java Script Object Notation.
-
-=> JSON represents data in key-value format.
-
-Ex: 
-
-{
-	"id" : 101,
-	"name" : "Ashok",
-	"phone" : 8686868
-}
+**Ex:** 
+    {
+        "id" : 101,
+        "name" : "Ashok",
+        "phone" : 8686868
+    }
 
 => JSON is very light weight.
-
 => JSON is platform independent & language independent.
-
 => JSON is used to transfer data over a network.
-
 => Distributed applications will use JSON data for request & response.
-
 
 Note: To work with json data in python, we have "json" module (in-built)
 
-
-json.dumps() : Converts Python object into JSON string
-
-json.dump() : Writes Python object into JSON file
-
-json.loads() : Converts JSON string into Python object
-
-json.load () : Reads JSON file and converts into Python object
+    json.dumps() : Converts Python object into JSON string
+    json.dump() : Writes Python object into JSON file
+    json.loads() : Converts JSON string into Python object
+    json.load () : Reads JSON file and converts into Python object
 
 --------------------------
 
