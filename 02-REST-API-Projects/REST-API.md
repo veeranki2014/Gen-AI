@@ -49,8 +49,8 @@
     ==>Provider
     ==>Consumer			
 
-**Provider means the application which is providing business services to other applications.**
-**Consumer means the application which is accessing business services from other applications.**
+    **Provider means the application which is providing business services to other applications.**
+    **Consumer means the application which is accessing business services from other applications.**
 
 	Ex: IRCTC is a provider and MakeMyTrip & Yatra are consmers.
 		OPEN AI GPT Project is a provider, Ashok IT Web App is a consumer.
@@ -68,10 +68,10 @@ Note: We will use JSON to exchange data between provider & consumer.
         "phone" : 8686868
     }
 
-=> JSON is very light weight.
-=> JSON is platform independent & language independent.
-=> JSON is used to transfer data over a network.
-=> Distributed applications will use JSON data for request & response.
+    => JSON is very light weight.
+    => JSON is platform independent & language independent.
+    => JSON is used to transfer data over a network.
+    => Distributed applications will use JSON data for request & response.
 
 Note: To work with json data in python, we have "json" module (in-built)
 
@@ -91,92 +91,73 @@ student = {
     "fee": 15000
 }
 
-student_json = json.dumps(student, sort_keys=True, indent=4)
-print(student_json)
-print(type(student_json))
-
-print("--------------------------------")
-
-student = json.loads(student_json)
-print(student)
-print(type(student))
-
-print("--------------------------------")
-
-with open("student.json", "w") as file:
-    json.dump(student, file, indent=10)
-
-print("JSON file created successfully")
-
-print("--------------------------------")
-
-with open("student.json", "r") as file:
-    student = json.load(file)
+    student_json = json.dumps(student, sort_keys=True, indent=4)
+    print(student_json)
+    print(type(student_json))
+    
+    print("--------------------------------")
+    
+    student = json.loads(student_json)
     print(student)
+    print(type(student))
+    
+    print("--------------------------------")
+    
+    with open("student.json", "w") as file:
+        json.dump(student, file, indent=10)
+    
+    print("JSON file created successfully")
+    
+    print("--------------------------------")
+    
+    with open("student.json", "r") as file:
+        student = json.load(file)
+        print(student)
 ------------------------------------------
 
-
-
-
 =================
-What is HTTP
+### What is HTTP
 =================
 
-=> HTTP stands for Hyper Text Transfer Protocol.
-
-=> HTTP acts as mediator between Client & Server.
-
-=> HTTP is stateless protocol
-	(can't remember converstation happend between client & server)
-
-=> To develop REST APIs we need to know below concepts of HTTP
+    => HTTP stands for Hyper Text Transfer Protocol.
+    => HTTP acts as mediator between Client & Server.
+    => HTTP is stateless protocol
+        (can't remember converstation happend between client & server)
+    => To develop REST APIs we need to know below concepts of HTTP
 
 		1) HTTP Request Structure
-
 		2) HTTP Response Structure
-
 		3) HTTP Methods
-
 		4) HTTP Status Codes
 
-
 ========================
-HTTP Request Structure
+### HTTP Request Structure
 ======================== 		
 
-=> It contains below parts
+    => It contains below parts
 
         1) Request Line ( HTTP Method + Server URL )
-
         2) Request Headers (Metadata) ==> (KEY - VALUE format)
-
         3) Request Body (Payload ---> text  / xml / json)
 
 =============================
-HTTP Response Structure
+### HTTP Response Structure
 =============================
 
-=> It contains below parts
+    => It contains below parts
 
         1) Response Line (Status Code + Status MSG)
-
         2) Response Headers  (Metadata - K & V)
-
         3) Response Body (Payload - text / xml / json)        
 
-
 ==============
-HTTP Methods
+### HTTP Methods
 ==============
 
 1) GET
-
 2) POST
-
 3) PUT
-
 4) PATCH
-
 5) DELETE
 
 
@@ -202,30 +183,30 @@ HTTP Status Codes
 
 
 =================================
-Develop REST API Using FAST API
+### Develop REST API Using FAST API
 =================================
 
-Step-1 : Create Python Project 
-
-Step-2 : Create "requirements.txt" file inside the project
-
-Step-3 : Configure required libraries in 'requirements.txt' file
-
-Step-4 : Create Virtual Environment and Activate it
-
-Step-5 : Install the libraries in venv using 'pip'
-
-		$ pip install -r requirements.txt
-
-Step-6 : create app.py file with "rest endpoint" methods
-
-Step-7 : Run the application using uvicorn
-
-		Ex : uvicorn main:app --reload
-
-Step-8 : Test the application using swagger documentation
-
-			URL : http://localhost:8000/docs
+    Step-1 : Create Python Project 
+    
+    Step-2 : Create "requirements.txt" file inside the project
+    
+    Step-3 : Configure required libraries in 'requirements.txt' file
+    
+    Step-4 : Create Virtual Environment and Activate it
+    
+    Step-5 : Install the libraries in venv using 'pip'
+    
+            $ pip install -r requirements.txt
+    
+    Step-6 : create app.py file with "rest endpoint" methods
+    
+    Step-7 : Run the application using uvicorn
+    
+            Ex : uvicorn main:app --reload
+    
+    Step-8 : Test the application using swagger documentation
+    
+                URL : http://localhost:8000/docs
 
 Note: When we hit above url, FastAPI automatically generates API documentation.
 
@@ -253,7 +234,7 @@ def get_greet_msg():
 
 
 ===================
-GET API Example
+### GET API Example
 ===================
 
 => GET API is used to fetch data from the server.
