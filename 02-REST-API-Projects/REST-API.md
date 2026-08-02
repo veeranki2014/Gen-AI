@@ -61,7 +61,7 @@ Note: We will use JSON to exchange data between provider & consumer.
     => JSON stands for Java Script Object Notation.
     => JSON represents data in key-value format.
 
-**Ex:** 
+    **Ex:** 
     {
         "id" : 101,
         "name" : "Ashok",
@@ -73,23 +73,21 @@ Note: We will use JSON to exchange data between provider & consumer.
     => JSON is used to transfer data over a network.
     => Distributed applications will use JSON data for request & response.
 
-Note: To work with json data in python, we have "json" module (in-built)
+    Note: To work with json data in python, we have "json" module (in-built)
 
     json.dumps() : Converts Python object into JSON string
     json.dump() : Writes Python object into JSON file
     json.loads() : Converts JSON string into Python object
     json.load () : Reads JSON file and converts into Python object
-
 --------------------------
-
-import json
-
-student = {
-    "id": 101,
-    "name": "Ravi",
-    "course": "Python",
-    "fee": 15000
-}
+    import json
+    
+    student = {
+        "id": 101,
+        "name": "Ravi",
+        "course": "Python",
+        "fee": 15000
+    }
 
     student_json = json.dumps(student, sort_keys=True, indent=4)
     print(student_json)
@@ -113,12 +111,10 @@ student = {
     with open("student.json", "r") as file:
         student = json.load(file)
         print(student)
-------------------------------------------
 
 =================
 ### What is HTTP
 =================
-
     => HTTP stands for Hyper Text Transfer Protocol.
     => HTTP acts as mediator between Client & Server.
     => HTTP is stateless protocol
@@ -129,143 +125,110 @@ student = {
 		2) HTTP Response Structure
 		3) HTTP Methods
 		4) HTTP Status Codes
-
 ========================
 ### HTTP Request Structure
-======================== 		
-
+========================
     => It contains below parts
-
         1) Request Line ( HTTP Method + Server URL )
         2) Request Headers (Metadata) ==> (KEY - VALUE format)
         3) Request Body (Payload ---> text  / xml / json)
-
 =============================
 ### HTTP Response Structure
 =============================
-
     => It contains below parts
-
         1) Response Line (Status Code + Status MSG)
         2) Response Headers  (Metadata - K & V)
         3) Response Body (Payload - text / xml / json)        
-
 ==============
 ### HTTP Methods
 ==============
+    1) GET
+    2) POST
+    3) PUT
+    4) PATCH
+    5) DELETE
 
-1) GET
-2) POST
-3) PUT
-4) PATCH
-5) DELETE
-
-
-=> GET method is used to get data from server (no request body)
-
-=> POST method is used to send data to server (it creates new record at server)
-
-=> PUT method is used to update the record (complete record update)
-
-=> PATCH method is used for record partial update
-
-=> DELETE method is used to delete record at server
-
+    => GET method is used to get data from server (no request body)
+    => POST method is used to send data to server (it creates new record at server)
+    => PUT method is used to update the record (complete record update)
+    => PATCH method is used for record partial update
+    => DELETE method is used to delete record at server
 ===================
-HTTP Status Codes
+### HTTP Status Codes
 ===================
-
-2xx (200 to 299) : Success
-
-4xx (400 to 499) : Client Error
-
-5xx (500 to 599) : Server Error
-
-
+    2xx (200 to 299) : Success
+    4xx (400 to 499) : Client Error
+    5xx (500 to 599) : Server Error
+=============================
+### REST API developemnt Libraries
+==================================
+    FAST API + Uvicorn (in-built server for FastAPI) + Pydantic (validation)
+    Decorators to map to the Fast API methods.
+    1) @app.get()
+    2) @app.post()
+    3) @app.put()
+    4) @app.delete()
 =================================
-### Develop REST API Using FAST API
+### Develop REST API Using FAST API ---> (34-28-Gen AI-24-July-2026)
 =================================
-
     Step-1 : Create Python Project 
-    
     Step-2 : Create "requirements.txt" file inside the project
-    
     Step-3 : Configure required libraries in 'requirements.txt' file
-    
     Step-4 : Create Virtual Environment and Activate it
-    
     Step-5 : Install the libraries in venv using 'pip'
-    
-            $ pip install -r requirements.txt
-    
+                $ pip install -r requirements.txt
     Step-6 : create app.py file with "rest endpoint" methods
-    
     Step-7 : Run the application using uvicorn
-    
-            Ex : uvicorn main:app --reload
-    
+                Ex : uvicorn main:app --reload
     Step-8 : Test the application using swagger documentation
-    
                 URL : http://localhost:8000/docs
 
-Note: When we hit above url, FastAPI automatically generates API documentation.
+    Note: When we hit above url, FastAPI automatically generates API documentation.
 
-** With API documentation we can understand, What endpoints available, our APi methods mapped to which type of HTTP requests, what are the request parameters, request data format, response data format.
+    ** With API documentation we can understand, What endpoints available, our APi methods mapped to which type of
+        HTTP requests, what are the request parameters, request data format, response data format.**
 
-** Using Swagger Documentation we can test the REST Endpoints also.
-
-Note: We can use POSTMAN also for API testing (it won't give documentation, we need to provide api details to postman to send the request.)
-
------------------------------------------
-
-from fastapi import FastAPI
-
-app = FastAPI()
-
-@app.get("/welcome")
-def get_welcome_msg():
-    return {"message" : "Welcome to FastAPI"}
-
-@app.get("/greet")
-def get_greet_msg():
-    return {"message" : "Good Morning"}
-
-------------------------------------------
-
-
+    ** Using Swagger Documentation we can test the REST Endpoints also.**
+    
+    Note: We can use POSTMAN also for API testing (it won't give documentation, we need to provide api details 
+    to postman to send the request.)
+    -----------------------------------------
+   
+    from fastapi import FastAPI
+    app = FastAPI()
+    
+    @app.get("/welcome")
+    def get_welcome_msg():
+        return {"message" : "Welcome to FastAPI"}
+    
+    @app.get("/greet")
+    def get_greet_msg():
+        return {"message" : "Good Morning"}
+    
+    ------------------------------------------
 ===================
-### GET API Example
+### GET API Example ---> (35-28-Gen AI-28-July-2026)
 ===================
+    => GET API is used to fetch data from the server.
 
-=> GET API is used to fetch data from the server.
-
-
-------------------------------
-
-from fastapi import FastAPI
-
-app = FastAPI()
-
-@app.get("/course")
-def get_course():
-    return {
-        "course": "Gen AI with Python",
-        "duration": "3 Months",
-        "trainer": "Ashok"
-    }
-
+    from fastapi import FastAPI
+    app = FastAPI()
+    
+    @app.get("/course")
+    def get_course():
+        return {
+            "course": "Gen AI with Python",
+            "duration": "3 Months",
+            "trainer": "Ashok"
+        }
 -----------------------------------------    
-
 URL : http://127.0.0.1:8000/course
-
 -----------------------------------------
 
-=> When we are using GET request we can send data to server in the URL...
+    => When we are using GET request we can send data to server in the URL...
+    => We have 2 options to send data in the URL
 
-=> We have 2 options to send data in the URL
-
-		1) Path Parameter
-
+ 		1) Path Parameter
 		2) Query Parameter
 
 ====================================
