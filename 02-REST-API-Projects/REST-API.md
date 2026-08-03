@@ -227,99 +227,81 @@ Note: We will use JSON to exchange data between provider & consumer.
  		1) Path Parameter
 		2) Query Parameter
 
-====================================
 ### What is Path Parameter
-====================================
--- Used to send data in URL directley
--- Need to represent its position in url template
 
-
+    -- Used to send data in URL directley
+    -- Need to represent its position in url template
 -----------------
-
-from fastapi import FastAPI, HTTPException
-from courses import courses
-
-app = FastAPI()
-
-@app.get("/courses")
-def get_course():
-  return courses
-
-@app.get("/courses/{course_id}")
-def get_course(course_id: int):
-
-   course = courses.get(course_id)
-
-   if course is None:
-       raise HTTPException(
-           status_code=404,
-           detail="Course not found"
-       )
-
-   return course
-
+    from fastapi import FastAPI, HTTPException
+    from courses import courses
+    
+    app = FastAPI()
+    
+    @app.get("/courses")
+    def get_course():
+      return courses
+    
+    @app.get("/courses/{course_id}")
+    def get_course(course_id: int):
+    
+       course = courses.get(course_id)
+    
+       if course is None:
+           raise HTTPException(
+               status_code=404,
+               detail="Course not found"
+           )
+    
+       return course
+    
 -----------------------   
 
-
-====================================
 ### What is Query Parameter
-====================================
+    
+    => Query parameter means passing value after ? in the URL.
+   
+            Ex : http://localhost:8000/courses?name=genai&trainer=ashok
+   
+    => Query Parameters starts with ? and seperated by "&"
+    => Query Parameters should present only at the end of the URL
 
-=> Query parameter means passing value after ? in the URL.
-
-		Ex : http://localhost:8000/courses?name=genai&trainer=ashok
-
-=> Query Parameters starts with ? and seperated by "&"
-
-=> Query Parameters should present only at the end of the URL
-
-
----------------------------------
-
-@app.get("/course-search")
-def search_course(search: str):
-
-    result  = []
-
-    for course_id, course in courses.items():
-        if search.lower() in course["course_name"].lower():
-            result.append({
-                "course_id": course_id,
-                **course
-            })
-
-    return result
-
+--------------------------------
+    @app.get("/course-search")
+    def search_course(search: str):
+    
+        result  = []
+    
+        for course_id, course in courses.items():
+            if search.lower() in course["course_name"].lower():
+                result.append({
+                    "course_id": course_id,
+                    **course
+                })
+    
+        return result
 ------------------------------------------------------    
-
-http://localhost:8000/course-search?search=stack
-
+### http://localhost:8000/course-search?search=stack
 -----------------------------------------------------
 
-==============================
-POST API with Request Body
-==============================
+### POST API with Request Body
 
-=> POST API is used to send data to the server.
-
-=> FastAPI uses Pydantic models to receive and validate request body data.
-
+    => POST API is used to send data to the server.
+    => FastAPI uses Pydantic models to receive and validate request body data.
 
 -----------------------------------------
 
-class Course(BaseModel):
-    course_id: int
-    course_name: str
-    course_price: int
-
-@app.post("/course", status_code=201)
-def create_course(course: Course):
-    # logic to insert data into db
-    return {
-        "message" : "Course created",
-        "course" : course
-    }
-
+    class Course(BaseModel):
+        course_id: int
+        course_name: str
+        course_price: int
+    
+    @app.post("/course", status_code=201)
+    def create_course(course: Course):
+        # logic to insert data into db
+        return {
+            "message" : "Course created",
+            "course" : course
+        }
 -------------------------------------------------------------------------------- 
 
 @@@ Assignment : Develop a REST API to perform CRUD operations using MYSQL Database. 
