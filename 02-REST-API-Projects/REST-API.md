@@ -112,9 +112,7 @@ Note: We will use JSON to exchange data between provider & consumer.
         student = json.load(file)
         print(student)
 
-=================
 ### What is HTTP
-=================
 
     => HTTP stands for Hyper Text Transfer Protocol.
     => HTTP acts as mediator between Client & Server.
