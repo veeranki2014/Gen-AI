@@ -115,6 +115,7 @@ Note: We will use JSON to exchange data between provider & consumer.
 =================
 ### What is HTTP
 =================
+
     => HTTP stands for Hyper Text Transfer Protocol.
     => HTTP acts as mediator between Client & Server.
     => HTTP is stateless protocol
@@ -125,16 +126,20 @@ Note: We will use JSON to exchange data between provider & consumer.
 		2) HTTP Response Structure
 		3) HTTP Methods
 		4) HTTP Status Codes
+
 ========================
 ### HTTP Request Structure
 ========================
+
     => It contains below parts
         1) Request Line ( HTTP Method + Server URL )
         2) Request Headers (Metadata) ==> (KEY - VALUE format)
         3) Request Body (Payload ---> text  / xml / json)
+
 =============================
 ### HTTP Response Structure
 =============================
+
     => It contains below parts
         1) Response Line (Status Code + Status MSG)
         2) Response Headers  (Metadata - K & V)
@@ -142,6 +147,7 @@ Note: We will use JSON to exchange data between provider & consumer.
 ==============
 ### HTTP Methods
 ==============
+
     1) GET
     2) POST
     3) PUT
@@ -152,16 +158,19 @@ Note: We will use JSON to exchange data between provider & consumer.
     => POST method is used to send data to server (it creates new record at server)
     => PUT method is used to update the record (complete record update)
     => PATCH method is used for record partial update
-    => DELETE method is used to delete record at server
+    => DELETE method is used to delete record at server+
+
 ===================
 ### HTTP Status Codes
 ===================
+
     2xx (200 to 299) : Success
     4xx (400 to 499) : Client Error
     5xx (500 to 599) : Server Error
 =============================
 ### REST API developemnt Libraries
 ==================================
+
     FAST API + Uvicorn (in-built server for FastAPI) + Pydantic (validation)
     Decorators to map to the Fast API methods.
     1) @app.get()
