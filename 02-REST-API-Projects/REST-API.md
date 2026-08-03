@@ -234,9 +234,7 @@ URL : http://127.0.0.1:8000/course
 ====================================
 ### What is Path Parameter
 ====================================
-
 -- Used to send data in URL directley
-
 -- Need to represent its position in url template
 
 
