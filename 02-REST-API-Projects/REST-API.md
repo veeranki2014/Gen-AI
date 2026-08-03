@@ -20,10 +20,10 @@
     1) Distributed applications are used for Business to Business Communication ( B 2 B )
     2) We can resue the functionality of one project in another project.
 
-## Ex-1:
+#### Ex-1:
     1) AWS project contains business logic to provision the AWS Services to expose as REST API Services.
 
-## Ex-2 :
+#### Ex-2 :
     1) OPEN AI company developed GPT Model (LLM)
     2) Other applications can use GPT Model for AI implementation.
 
@@ -125,26 +125,20 @@ Note: We will use JSON to exchange data between provider & consumer.
 		3) HTTP Methods
 		4) HTTP Status Codes
 
-========================
 ### HTTP Request Structure
-========================
 
     => It contains below parts
         1) Request Line ( HTTP Method + Server URL )
         2) Request Headers (Metadata) ==> (KEY - VALUE format)
         3) Request Body (Payload ---> text  / xml / json)
 
-=============================
 ### HTTP Response Structure
-=============================
 
     => It contains below parts
         1) Response Line (Status Code + Status MSG)
         2) Response Headers  (Metadata - K & V)
         3) Response Body (Payload - text / xml / json)        
-==============
 ### HTTP Methods
-==============
 
     1) GET
     2) POST
@@ -157,17 +151,13 @@ Note: We will use JSON to exchange data between provider & consumer.
     => PUT method is used to update the record (complete record update)
     => PATCH method is used for record partial update
     => DELETE method is used to delete record at server+
-
-===================
 ### HTTP Status Codes
-===================
 
     2xx (200 to 299) : Success
     4xx (400 to 499) : Client Error
     5xx (500 to 599) : Server Error
-=============================
+
 ### REST API developemnt Libraries
-==================================
 
     FAST API + Uvicorn (in-built server for FastAPI) + Pydantic (validation)
     Decorators to map to the Fast API methods.
@@ -175,9 +165,8 @@ Note: We will use JSON to exchange data between provider & consumer.
     2) @app.post()
     3) @app.put()
     4) @app.delete()
-=================================
 ### Develop REST API Using FAST API ---> (34-28-Gen AI-24-July-2026)
-=================================
+
     Step-1 : Create Python Project 
     Step-2 : Create "requirements.txt" file inside the project
     Step-3 : Configure required libraries in 'requirements.txt' file
@@ -213,9 +202,9 @@ Note: We will use JSON to exchange data between provider & consumer.
         return {"message" : "Good Morning"}
     
     ------------------------------------------
-===================
+
 ### GET API Example ---> (35-28-Gen AI-28-July-2026)
-===================
+
     => GET API is used to fetch data from the server.
 
     from fastapi import FastAPI
@@ -229,7 +218,7 @@ Note: We will use JSON to exchange data between provider & consumer.
             "trainer": "Ashok"
         }
 -----------------------------------------    
-URL : http://127.0.0.1:8000/course
+###URL : http://127.0.0.1:8000/course
 -----------------------------------------
 
     => When we are using GET request we can send data to server in the URL...
